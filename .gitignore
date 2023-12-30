@@ -1,3 +1,4 @@
-# Ignorar carpetas y archivos de datos
+# Ignorar carpetas y archivos 
 datasets_iniciales/
 datasets_limpios/
+notebooks/pruebas_end_point.ipynb
