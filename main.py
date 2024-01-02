@@ -16,12 +16,12 @@ app = FastAPI(title='Juegos recomendadas',
               version='1.0')
 
 # Obtén el directorio actual del script
-current_directory = os.path.dirname(os.path.abspath(__file__)) if '__file__' in locals() else os.getcwd()
+current_directory = os.path.dirname(os.path.abspath(__file__)) if "__file__" in locals() else os.getcwd()
 
 # Construye la ruta al archivo de datos en la carpeta 'dataset_limpios'
-file_path_reviews_sentiment = os.path.join(current_directory, '..', 'datasets_limpios', 'df_reviews_sentiment.parquet.gzip')
-file_path_items = os.path.join(current_directory, '..', 'datasets_limpios', 'df_items.parquet.gzip')
-file_path_games = os.path.join(current_directory, '..', 'datasets_limpios', 'df_games.parquet.gzip')
+file_path_reviews_sentiment = os.path.join(current_directory, "datasets_limpios", "df_reviews_sentiment.parquet.gzip")
+file_path_items = os.path.join(current_directory, "datasets_limpios", "df_items.parquet.gzip")
+file_path_games = os.path.join(current_directory, "datasets_limpios", "df_games.parquet.gzip")
 # Cargar los archivos para realizar consultas
 data_reviews = ParquetFile(file_path_reviews_sentiment)
 df_data_reviews = data_reviews.to_pandas()
