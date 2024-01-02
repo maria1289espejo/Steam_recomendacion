@@ -1,6 +1,9 @@
 # Ignorar carpetas y archivos 
 datasets_iniciales/
-datasets_limpios/
+datasets_limpios/df_reviews_clean.parquet.gzip"
+datasets_limpios/df_reviews.parquet.gzip"
+
 notebooks/pruebas_end_point.ipynb
 /venv/
 notebooks/__pycache__/
+apuntes.txt
