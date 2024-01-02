@@ -2,3 +2,5 @@
 datasets_iniciales/
 datasets_limpios/
 notebooks/pruebas_end_point.ipynb
+/venv/
+notebooks/__pycache__/
