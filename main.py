@@ -6,6 +6,8 @@ from datetime import datetime
 from fastparquet import ParquetFile
 from unidecode import unidecode
 from pydantic import BaseModel
+import uvicorn
+
 
 # Pone nombre, descripción y versión a la API
 app = FastAPI(title='Juegos recomendadas',
