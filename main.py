@@ -7,6 +7,7 @@ from fastparquet import ParquetFile
 from unidecode import unidecode
 from pydantic import BaseModel
 import uvicorn
+import os
 
 
 # Pone nombre, descripción y versión a la API
@@ -14,12 +15,19 @@ app = FastAPI(title='Juegos recomendadas',
               description='Sistema de recomendación de juegos de la plataforma Steam basado en tus gustos',
               version='1.0')
 
+# Obtén el directorio actual del script
+current_directory = os.path.dirname(os.path.abspath(__file__)) if '__file__' in locals() else os.getcwd()
+
+# Construye la ruta al archivo de datos en la carpeta 'dataset_limpios'
+file_path_reviews_sentiment = os.path.join(current_directory, '..', 'datasets_limpios', 'df_reviews_sentiment.parquet.gzip')
+file_path_items = os.path.join(current_directory, '..', 'datasets_limpios', 'df_items.parquet.gzip')
+file_path_games = os.path.join(current_directory, '..', 'datasets_limpios', 'df_games.parquet.gzip')
 # Cargar los archivos para realizar consultas
-data_reviews = ParquetFile("C:/Users/57315/OneDrive/Documentos/Phyton_Henry/proyecto individual 1/PI MLOps - STEAM/datasets_limpios/df_reviews_sentiment.parquet.gzip")
+data_reviews = ParquetFile(file_path_reviews_sentiment)
 df_data_reviews = data_reviews.to_pandas()
-data_items = ParquetFile("C:/Users/57315/OneDrive/Documentos/Phyton_Henry/proyecto individual 1/PI MLOps - STEAM/datasets_limpios/df_items.parquet")
+data_items = ParquetFile(file_path_items)
 df_data_items = data_items.to_pandas()
-data_games = ParquetFile("C:/Users/57315/OneDrive/Documentos/Phyton_Henry/proyecto individual 1/PI MLOps - STEAM/datasets_limpios/df_games.parquet")
+data_games = ParquetFile(file_path_games)
 df_data_games = data_games.to_pandas()
 
 # End ponit de prueba
